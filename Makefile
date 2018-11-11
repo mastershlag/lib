@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.h
+NAME = libft.a
 SRCS = ./et1/*.c
 HEADER = ./includes/
 FLAGS = -Wall -Wextra -Werror
@@ -22,6 +22,7 @@ all: $(NAME) clean
 $(NAME):
 		gcc $(FLAGS) $(OPTION) $(SRCS)
 		ar rc $(NAME) $(OBJ)
+
 clean:
 		rm -f $(OBJ)
 fclean: clean
