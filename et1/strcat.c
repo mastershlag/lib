@@ -14,6 +14,23 @@
 
 char *ft_strcat(char *dest, const char *src)
 {
-	ft_strcpy(dest + ft_strlen(dest), src);
+	int	i;
+
+	i = -1;
+	while (dest[++i])
+		;
+	while (*src)
+		dest[i++] = *src++;
+	dest[i] = 0;
 	return (dest);
 }
+/*
+int main()
+{
+	char lol[150] = "mais wsh";
+	char mdr[] = "quel genie";
+	printf("%s\n", ft_strcat(lol, mdr));
+	return 0;
+}
+
+*/

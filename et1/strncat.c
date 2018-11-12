@@ -14,11 +14,14 @@
 
 char *ft_strncat(char *dest, const char *src, size_t n)
 {
-	char *cpsrc;
+	int	i;
 
-	if (!(cpsrc =(char*)malloc(sizeof(char) * n)))
-		return (0);
-	ft_strncpy(cpsrc, src, n);
-	ft_strcpy(dest + ft_strlen(dest), src);
+	i = -1;
+	while (dest[++i])
+		;
+	while (*src && n--)
+		dest[i++] = *src++;
+	dest[i] = 0;
 	return (dest);
 }
+ 

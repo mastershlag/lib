@@ -1,104 +1,112 @@
-//#include "libft.h"
-/*
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
-int		ft_nbw(char const *s, char c)
+int		ft_target(char a, char c)
 {
-	int	nb;
-	int	i;
+	if (a == c)
+		return (1);
+	else
+		return (0);
+}
 
-	nb = 0;
+void	ft_remplisfdp(char *s, char **mdr, char c)
+{
+	int i;
+	int j;
+	int k;
+
 	i = 0;
+	k = 0;
+	j = 0;
 	while (s[i])
 	{
-		if (s[i] != c)
+		while (ft_target(s[i], c) == 1)
 			i++;
-		while ()
+		while (ft_target(s[i], c) == 0 && s[i])
+		{
+			mdr[k][j] = s[i];
+			j++;
+			i++;
+		}
+		mdr[k][j] = 0;
+		k++;
+		j = 0;
 	}
+	mdr[k] = 0;
 }
 
-int		ft_wordlen(char const *s, char c, int i)
+char	*ft_nikles(const char *s, char c)
 {
-	int nbr;
+	int		i;
+	char	*joie;
 
-	nbr = 0;
-	while (s[i] != c)
-	{
-		nbr++;
-//		printf("lettre %c nbr %d\n", s[i], nbr);
+	i = 0;
+	while (s
+		[i])
 		i++;
-	}
-//	printf("NBR %d\n", nbr);
-	return (nbr);
+	if (!(joie = (char*)malloc(sizeof(char) * (i + 1))))
+		return (0);
+	i = -1;
+	while (s
+		[++i])
+		joie[i] = s
+	[i];
+	joie[i] = 0;
+	while (ft_target(joie[--i], c) == 1)
+		joie[i] = 0;
+	return (joie);
 }
 
-char ** ft_remplis(char const *s, char c, char **out)
+char	**ft_taille(char *joie, char c)
 {
-	int		cpt;
+	int		i;
+	int		k;
+	char	**mdr;
+
+	i = 0;
+	k = 0;
+	while (joie[i])
+	{
+		while (ft_target(joie[i], c) == 1 && joie[i])
+			i++;
+		if (ft_target(joie[i], c) == 0 && joie[i])
+		{
+			k++;
+			while (ft_target(joie[i], c) == 0 && joie[i])
+				i++;
+		}
+	}
+	if (!(mdr = (char**)malloc(sizeof(char*) * (k + 2))))
+		return (0);
+	return (mdr);
+}
+
+char	**ft_strsplit(char const *s, char c)
+{
 	int		i;
 	int		j;
+	int		k;
+	char	*joie;
+	char	**mdr;
 
+	mdr = 0;
+	joie = ft_nikles(s, c);
+	mdr = ft_taille(joie, c);
+	k = 0;
 	i = 0;
-	j = -1;
-	cpt = 0;
-	while (s[++j])
+	while (joie[i])
 	{
-		if ((s[j] == c && s[j + 1] != c && s[j + 1]) || (!s[j + 1] && s[j] != c))
+		j = 0;
+		while (ft_target(joie[i], c) == 1)
+			i++;
+		while (ft_target(joie[i], c) == 0 && joie[i])
 		{
-			while (s[j + 1] != c)
-				out[cpt][i++] = s[j++];
-			out[cpt][i] = 0;
-			cpt++;
+			i++;
+			j++;
 		}
-		s++;
-	}
-	out[cpt] = 0;
-	return (out);
-}
-
-char ** ft_strsplit(char const *s, char c)
-{
-	int		cpt;
-	int		i;
-	char	**out;
-
-	cpt = 0;
-	i = 0;
-	while (s[i] == c)
-		i++;
-	cpt	= ft_nbw(s,c);
-	printf("cpt %d\n", cpt);
-	if (!(out = (char **)malloc(sizeof(char *) * (cpt + 1))))
+		if (!(mdr[k++] = (char*)malloc(sizeof(char) * (j + 2))))
 			return (0);
-		i = -1;
-		cpt = 0;
-	while (s[++i])
-	{
-		if ((s[i] == c && s[i + 1] != c && s[i + 1]) || (!s[i + 1] && s[i] != c))
-		{
-			if (!(out[cpt++] = (char *)malloc(sizeof(char) * (ft_wordlen(s, c, i) + 1))))
-				return (0);
-		}
-		//printf("hmm %c\n", s[i]);
 	}
-	ft_remplis(s, c, out);
-	return (out);
+	mdr[k] = 0;
+	ft_remplisfdp(joie, mdr, c);
+	return (mdr);
 }
-
-
-int main()
-{
-	char **lol;
-	char mdr[] = " ptdr t ki ? ";
-
-	lol = ft_strsplit(mdr, ' ');
-	while (**lol)
-	{
-		printf("%s\n", *lol);
-		lol++;
-	}
-	return 0;
-}
-*/

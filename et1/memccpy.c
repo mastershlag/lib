@@ -26,7 +26,7 @@ void *ft_memccpy(void *dest, const void *src, int c, size_t n)
 	while (++cpt < n)
 	{
 		cpdest[cpt] = cpsrc[cpt];
-		if (cpsrc[cpt] == (char)c)
+		if (cpsrc[cpt + 1] == (char)c)
 			return (dest + cpt + 1);
 	}
 	return (0);
