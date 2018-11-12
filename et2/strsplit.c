@@ -1,7 +1,12 @@
-#include "libft.h"
-
+#include "libft.h"/*
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+*/
 int		ft_target(char a, char c)
 {
+	if (!a || !c)
+		return (0);
 	if (a == c)
 		return (1);
 	else
@@ -40,6 +45,8 @@ char	*ft_nikles(const char *s, char c)
 	char	*joie;
 
 	i = 0;
+	if (!s || !c)
+		return (0);
 	while (s
 		[i])
 		i++;
@@ -64,6 +71,8 @@ char	**ft_taille(char *joie, char c)
 
 	i = 0;
 	k = 0;
+	if (!joie || !c)
+		return (0);
 	while (joie[i])
 	{
 		while (ft_target(joie[i], c) == 1 && joie[i])
@@ -88,21 +97,19 @@ char	**ft_strsplit(char const *s, char c)
 	char	*joie;
 	char	**mdr;
 
-	mdr = 0;
 	joie = ft_nikles(s, c);
 	mdr = ft_taille(joie, c);
 	k = 0;
 	i = 0;
+	if (!s || !c)
+		return (0);
 	while (joie[i])
 	{
-		j = 0;
+		j = -1;
 		while (ft_target(joie[i], c) == 1)
 			i++;
-		while (ft_target(joie[i], c) == 0 && joie[i])
-		{
+		while (ft_target(joie[i], c) == 0 && joie[i] && ++j > -1)
 			i++;
-			j++;
-		}
 		if (!(mdr[k++] = (char*)malloc(sizeof(char) * (j + 2))))
 			return (0);
 	}
@@ -110,3 +117,18 @@ char	**ft_strsplit(char const *s, char c)
 	ft_remplisfdp(joie, mdr, c);
 	return (mdr);
 }
+/*
+int main()
+{
+	char lol[] = "___________non___mais_gro______";
+	char **mdr;
+
+	mdr = ft_strsplit(lol, '_');
+	while (*mdr)
+	{
+		printf("%s\n", *mdr);
+		mdr++;
+	}
+	return 0;
+}
+*/

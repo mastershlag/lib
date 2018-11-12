@@ -2,9 +2,9 @@
 
 void ft_strclr(char *s)
 {
-	while(*s && s)
+	if (s)
 	{
-		*s = '\0';
-		s++;
+		while (*s)
+			*(s++) = 0;
 	}
 }
