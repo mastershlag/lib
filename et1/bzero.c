@@ -12,24 +12,13 @@
 
 #include "libft.h"
 
-void ft_bzero(void *s, size_t nbyte)
+void	ft_bzero(void *s, size_t nbyte)
 {
-	char *saviour;
-	size_t john;
+	char	*saviour;
+	size_t	john;
 
 	john = -1;
 	saviour = s;
 	while (++john < nbyte)
 		saviour[john] = 0;
 }
-/*
-int main()
-{
-	char str[] = "jtebezenmasse";
-	printf("%s\n", str);
-	ft_bzero(str + 2 , 6);
-	printf("%s\n", str);
-	printf("%s\n", str + 8);
-	return 0;
-}
-*/

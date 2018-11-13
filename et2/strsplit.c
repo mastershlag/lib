@@ -1,8 +1,17 @@
-#include "libft.h"/*
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-*/
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   strsplit.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pharatyk <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/11/13 10:48:03 by pharatyk          #+#    #+#             */
+/*   Updated: 2018/11/13 10:48:06 by pharatyk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
 int		ft_target(char a, char c)
 {
 	if (!a || !c)
@@ -117,18 +126,3 @@ char	**ft_strsplit(char const *s, char c)
 	ft_remplisfdp(joie, mdr, c);
 	return (mdr);
 }
-/*
-int main()
-{
-	char lol[] = "___________non___mais_gro______";
-	char **mdr;
-
-	mdr = ft_strsplit(lol, '_');
-	while (*mdr)
-	{
-		printf("%s\n", *mdr);
-		mdr++;
-	}
-	return 0;
-}
-*/

@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	char	*cpdest;
 	char	*cpsrc;
@@ -27,14 +27,3 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 		cpdest[cpt] = cpsrc[cpt];
 	return (dest);
 }
-/*
-int main(int argc, char const *argv[])
-{
-	const char src[50] = "http://www.tutorialspoint.com";
-	char dest[50];
-	printf("Before memcpy dest = %s\n", dest);
-	ft_memcpy(dest, src, strlen(src)+1);
-	printf("after memcpy dest = %s\n", dest);
-	return 0;
-}
-*/
