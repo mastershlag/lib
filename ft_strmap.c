@@ -24,5 +24,6 @@ char	*ft_strmap(char const *s, char (*f)(char))
 		return (0);
 	while (s[++i])
 		out[i] = f(s[i]);
+	out[i] = 0;
 	return (out);
 }

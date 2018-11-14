@@ -110,7 +110,7 @@ char			**ft_strsplit(char const *s, char c)
 	mdr = ft_taille(joie, c);
 	k = 0;
 	i = 0;
-	if (!s || !c)
+	if (!s || !c || !joie || !mdr)
 		return (0);
 	while (joie[i])
 	{

@@ -17,18 +17,15 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	char		*cpdest;
 	const char	*cpsrc;
 
-	if (dest && src)
+	cpdest = dest;
+	cpsrc = src;
+	while (n--)
 	{
-		cpdest = dest;
-		cpsrc = src;
-		while (n--)
-		{
-			*cpdest = *cpsrc;
-			if (*cpdest == (char)c)
-				return ((void *)(++cpdest));
-			cpdest++;
-			cpsrc++;
-		}
+		*cpdest = *cpsrc;
+		if (*cpdest == (char)c)
+			return ((void *)(++cpdest));
+		cpdest++;
+		cpsrc++;
 	}
 	return (0);
 }
