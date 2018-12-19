@@ -13,9 +13,15 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# define BUFF_SIZE 1000
+
 # include <string.h>
+# include <fcntl.h>
+# include <sys/types.h>
+# include <sys/uio.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 typedef struct	s_list
 {
@@ -83,5 +89,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
+int				ft_get_next_line(const int fd, char **line);
 
 #endif
